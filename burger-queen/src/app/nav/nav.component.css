@@ -1,0 +1,35 @@
+header {
+    background: #363131;
+}
+
+.logo {
+    font-weight: bold;
+}
+
+nav {
+    justify-self: right;
+}
+    
+ul {
+    list-style-type: none;
+    margin: 0; padding: 0;
+}
+
+li {
+    float: left;
+    margin-top: 12px;
+}
+
+a {
+    padding: 1.0em;
+    text-transform: uppercase;
+    font-size: .8em;
+}
+a:hover {
+    background: rgb(255, 188, 43);
+    color: #363131;
+}
+img {
+    width: 60px;
+    height: 60px;
+}
