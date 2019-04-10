@@ -2,3 +2,7 @@ body {
     height: 100%;
     background-image: url('/burger-queen/src/app/burger-img/fondo.jpg');
 }
+
+.section-menu {
+    widows: 30%;
+}
