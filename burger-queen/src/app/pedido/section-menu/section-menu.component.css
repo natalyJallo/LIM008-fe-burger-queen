@@ -1,5 +1,27 @@
-.width {
+/* .width {
     flex-basis: 0;
     -ms-flex-positive: 1;
     width: 35%;
+} */
+
+.general {
+    width: 100%;
+    
 }
+.width-2 {
+    width: 15%;
+    height: 100%;
+    position: absolute;
+    background: #363131;
+}
+.width-3 {
+     width: 70%;
+     margin-left: 150px;
+}
+.margin {
+    margin: 50px 20px;
+    background: #363131;
+}
+ .card-1 {
+width: 80%;
+ }

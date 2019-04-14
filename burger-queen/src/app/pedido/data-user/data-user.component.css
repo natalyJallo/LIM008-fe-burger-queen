@@ -1,5 +1,10 @@
-
 .text {
     font-size: 15px;
     color: white;
+}
+
+.width1 {
+    width: 100%;
+    background-color: #fff;
+    font-size: 15px;
 }

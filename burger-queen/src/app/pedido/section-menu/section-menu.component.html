@@ -1,1 +1,115 @@
+<div class="general">
+<div class="width-2">
+   <div class="nav flex-column nav-pills float-left" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+     <a class="nav-link active margin" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true" (click)="filterData('desayuno')">Desayuno</a>
+     <a class="nav-link margin" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false" (click)="filterData('almuerzo')">Almuerzo</a>
+     <a class="nav-link margin" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Pedido</a>
+     <a class="nav-link margin" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</a>
+   </div>
+</div>
+<div class="width-3">
+  <button *ngFor= "let menu of breakfastMenu"  (click)="enviarMensaje(menu)">
+    <div class="card" style="width: 15rem;">
+            <div class="card-body">
+              <h5 class="card-title">{{menu.nombre}}</h5>
+              <h6 class="card-subtitle mb-2 text-muted"></h6>
+              <p class="card-text">{{menu.precio}}</p>
+            </div>
+            <input type="text" >
+          </div>
+        </button> 
+    </div>
+</div>
 
+
+<!-- <div class="form-1 margin"> -->
+<!-- <p class="form-1"> -->
+  <!-- <a class="btn btn-primary" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Cafes</a> -->
+    <!-- <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2" *ngFor= "let menu of breakfastMenu">{{menu.tipo}}</button> -->
+    <!-- <button class="btn btn-primary" type="button" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2">Jugos</button> -->
+<!-- </p> -->
+  <!-- <div class="row" *ngFor= "let menu of breakfastMenu">
+    <div class="width">
+      <div class="collapse multi-collapse" id="multiCollapseExample1">
+        <div class="card card-body">
+            <div class="card" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">{{menu.tipo} === "cafe"}</h5>
+                  <p class="card-text">Precio: $ 5.00</p>
+                  <a href="#" class="btn btn-primary">Agregar</a>
+                </div>
+              </div>
+        </div>
+      </div>
+    </div> -->
+    <!-- <div class="width">
+      <div class="collapse multi-collapse" id="multiCollapseExample2">
+        <div class="card card-body">
+            <div class="card" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Cafe Americano</h5>
+                  <p class="card-text">Precio: $ 5.00</p>
+                  <a href="#" class="btn btn-primary">Agregar</a>
+                </div>
+              </div>
+        </div>
+      </div>
+    </div> -->
+  <!-- </div>
+</div> -->
+
+<!-- <div *ngFor= "let menu of breakfastMenu" >
+  <div>
+    <button>{{menu.nombre}}
+      {{menu.precio}}
+    </button>
+  </div>
+</div> -->
+<!-- <div class="form-1">
+<p class="section-menu">
+    <a class="btn btn-primary" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Hamburguesas</a>
+    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Bebidas</button>
+    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2">Acompañamientos</button>
+    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2">Adicionales</button>
+  </p>
+  <div class="row">
+    <div class="width">
+      <div class="collapse multi-collapse" id="multiCollapseExample1">
+        <div class="card card-body">
+            <div class="card" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Cafe Americano</h5>
+                  <p class="card-text">Precio: $ 5.00</p>
+                  <a href="#" class="btn btn-primary">Agregar</a>
+                </div>
+              </div>
+        </div>
+      </div>
+    </div>
+    <div class="width">
+      <div class="collapse multi-collapse" id="multiCollapseExample2">
+        <div class="card card-body">
+            <div class="card" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Cafe Americano</h5>
+                  <p class="card-text">Precio: $ 5.00</p>
+                  <a href="#" class="btn btn-primary">Agregar</a>
+                </div>
+              </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+<!-- 
+<div *ngFor= "let menu of lunchMenu" >
+  <div>
+    <button>{{menu.nombre}}
+      {{menu.precio}}
+    </button>
+  </div>
+</div> -->

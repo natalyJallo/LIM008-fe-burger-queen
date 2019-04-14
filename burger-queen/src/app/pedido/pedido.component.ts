@@ -6,6 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pedido.component.css']
 })
 export class PedidoComponent implements OnInit {
+  enviarApedido: string;
+
+  mensajeParaSectionUser(mensaje: string){
+    this.enviarApedido = mensaje;
+  }
 
   constructor() { }
 

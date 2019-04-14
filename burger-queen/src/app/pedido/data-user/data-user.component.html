@@ -1,4 +1,4 @@
-<div class="">
+<div class="width1">
 <h1 class="text">Datos del cliente</h1>
 <form>
     <div class="form-group">
@@ -10,4 +10,59 @@
       <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="numero de mesa">
     </div>
   </form>
+</div>
+
+<div>
+    <div class="width1" > 
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Cantidad</th>
+              <th scope="col">Precio</th>
+              <th scope="col">Subtotal</th>
+              <th scope="col">Opcion</th>
+            </tr>
+          </thead>
+          <tbody *ngFor= "let desayuno of dataDesayuno" >
+            <tr ng-init= "$parent.total=total+ desayuno.precio">
+              <th scope="row">#</th>
+              <td scope="col">{{desayuno.nombre}}</td>
+              <td scope="col"><input type="number" ng-model="n1" class="form-control" min="0" id="cantidad" placeholder="0"></td>
+              <td scope="col"><span ng-model="n2">{{desayuno.precio}}</span></td>
+              <!-- <td scope="col"><input type="number" ng-model="solicitado" min="1" max="5000" ng-change="comprar(producto)"></td> -->
+              <!-- <td><h1>{{solicitado}}</h1></td> -->
+              <td scope="col">{{n1*n2}}</td>
+              <td scope="col"><button (click)="delete(desayuno)">x</button></td>
+            </tr>
+
+            <!-- <td>Total de pedido: {{obtenerTotal()}}</td> -->
+          </tbody>
+        </table>
+        <p>
+          Fecha: {{date | date: 'short'}}
+        </p>
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">{{total}}</span>
+          </div>
+          <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)" name="sum" value="0" readonly="readonly">
+          <div class="input-group-append">
+            <span class="input-group-text">.00</span>
+          </div>
+        </div>
+        
+        <!-- Small modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm">Small modal</button>
+        
+        <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+              ...
+            </div>
+          </div>
+        </div>
+        </div>
 </div>
