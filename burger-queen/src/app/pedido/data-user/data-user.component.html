@@ -2,12 +2,16 @@
 <h1 class="text">Datos del cliente</h1>
 <form>
     <div class="form-group">
-      <label for="formGroupExampleInput">cliente</label>
-      <input type="text" class="form-control" id="formGroupExampleInput" placeholder="nombres y apellidos">
+      <h1 class="text">N° Orden</h1>
+      <span class="form-control">{{00 + numOrder}}</span>
     </div>
     <div class="form-group">
-      <label for="formGroupExampleInput2">N° Mesa</label>
-      <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="numero de mesa">
+      <label for="formGroupExampleInput" class="text">cliente</label>
+      <input type="text" class="form-control" [(ngModel)]="name" name="name" (keyup)="generateNumOrder(name)" id="formGroupExampleInput" placeholder="nombres y apellidos">
+    </div>
+    <div class="form-group">
+      <label for="formGroupExampleInput2" class="text">N° Mesa</label>
+      <input type="number" class="form-control" [(ngModel)]="mesa" name="mesa" id="formGroupExampleInput2" placeholder="numero de mesa">
     </div>
   </form>
 </div>
@@ -25,16 +29,16 @@
               <th scope="col">Opcion</th>
             </tr>
           </thead>
-          <tbody *ngFor= "let desayuno of dataDesayuno" >
-            <tr ng-init= "$parent.total=total+ desayuno.precio">
-              <th scope="row">#</th>
+          <tbody *ngFor= "let desayuno of dataDesayuno ; let indice=index" >
+            <tr>
+              <th scope="row">{{indice+1}}</th>
               <td scope="col">{{desayuno.nombre}}</td>
-              <td scope="col"><input type="number" ng-model="n1" class="form-control" min="0" id="cantidad" placeholder="0"></td>
-              <td scope="col"><span ng-model="n2">{{desayuno.precio}}</span></td>
+              <td scope="col"><input type="number" name="cantidad" [ngModel]="desayuno.cantidad" #cantidadNew (keyup)="multiplication(desayuno, cantidadNew.value)"  class="form-control" min="0" max="10" placeholder="0"></td>
+              <td scope="col">{{desayuno.precio}}</td>
               <!-- <td scope="col"><input type="number" ng-model="solicitado" min="1" max="5000" ng-change="comprar(producto)"></td> -->
               <!-- <td><h1>{{solicitado}}</h1></td> -->
-              <td scope="col">{{n1*n2}}</td>
-              <td scope="col"><button (click)="delete(desayuno)">x</button></td>
+              <td scope="col" >{{desayuno.subtotal}}.00</td>
+              <td scope="col"><button (click)="deleteOrder(desayuno.id)">x</button></td>
             </tr>
 
             <!-- <td>Total de pedido: {{obtenerTotal()}}</td> -->
@@ -46,21 +50,23 @@
 
         <div class="input-group mb-3">
           <div class="input-group-prepend">
-            <span class="input-group-text">{{total}}</span>
+            <span class="input-group-text">$</span>
           </div>
-          <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)" name="sum" value="0" readonly="readonly">
+          <span class="input-group-text"  >{{total}}</span>
+          <!-- <input type="number" [ngModel]="total" class="form-control" aria-label="Amount (to the nearest dollar)" name="sum" value="0" readonly="readonly"> -->
           <div class="input-group-append">
             <span class="input-group-text">.00</span>
           </div>
         </div>
         
         <!-- Small modal -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm">Small modal</button>
+        <button type="button" (click)="enviarData2()" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target=".bd-example-modal-sm">Enviar pedido a cocina</button>
         
         <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-sm">
             <div class="modal-content">
-              ...
+              <h1>Estas seguro de enviar la orden al area de cocina</h1>
+              <button class="btn btn-success">Ok</button><button class="btn btn-success">Atras</button>
             </div>
           </div>
         </div>

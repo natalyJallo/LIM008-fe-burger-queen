@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import {DataApi} from '../services/data-api.model';
 import { Observable } from 'rxjs';
+// import { ServiceSecondService } from '../pedido/service-second.service';
 
 // import { map } from 'rxjs/operators';
 
@@ -12,12 +13,21 @@ export class DataApiService {
   productCollection;
   products: Observable<DataApi[]>;
   productDoc;
+  orderUser;
   
   constructor(public firestore: AngularFirestore) { 
-     
+    // this.dataOrderService.currentDataMenu.subscribe(desayuno => {
+    //   this.orderUser = desayuno;
+    // })
   }
    getData () {
     return this.firestore.collection('menus').valueChanges();
+   }
+
+   sendData(obtjData) {
+     console.log(obtjData);
+    this.firestore.collection('orderUser').add(obtjData);
+
    }
   // getData() {
   //   return this.firestore.collection('menus').snapshotChanges()

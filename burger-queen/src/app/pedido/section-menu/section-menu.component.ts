@@ -1,7 +1,6 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {DataApiService} from '../../services/data-api.service';
-import {ServicesSecondComponent} from '../services-second/services-second.component';
-
+import { ServiceSecondService } from '../service-second.service';
 
 @Component({
   selector: 'app-section-menu',
@@ -11,12 +10,10 @@ import {ServicesSecondComponent} from '../services-second/services-second.compon
 
 export class SectionMenuComponent implements OnInit {
 
-  // @Output() mensajeDesdeMenu = new EventEmitter<string>();
-
   public breakfastMenu = [];
   public dataDesayuno = {};
   constructor(private firestoreService:DataApiService, 
-    private dataService: ServicesSecondComponent) { 
+    private dataService: ServiceSecondService) { 
       this.dataService.currentDataMenu.subscribe(desayuno => {
         this.dataDesayuno = desayuno;
       })
@@ -30,18 +27,20 @@ export class SectionMenuComponent implements OnInit {
     .subscribe((menu) => {
       const filterMenu = menu.filter((obj: any) => {
         if(obj.item === typeMenu){
-          console.log(obj);
           return obj;
         }
       })
       this.breakfastMenu = filterMenu;
-      console.log(this.breakfastMenu);
     } )
   }
 
-  enviarMensaje(menu: string){
-    console.log(menu);
-    const data = menu;
+  enviarMensaje(menu: any){
+
+    const data = {
+      ...menu,
+      cantidad:1,
+      subtotal: menu.precio,
+    }
     
     this.dataService.printDataMenu(data);
   }

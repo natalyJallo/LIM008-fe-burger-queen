@@ -1,6 +1,7 @@
 .text {
     font-size: 15px;
-    color: white;
+    color: rgb(3, 3, 3);
+    margin-left: 10px;
 }
 
 .width1 {

@@ -1,5 +1,6 @@
 import { Component, OnInit} from '@angular/core';
-import {ServicesSecondComponent} from '../services-second/services-second.component';
+import { ServiceSecondService } from '../service-second.service';
+import { Timestamp } from 'rxjs';
 
 
 @Component({
@@ -8,49 +9,68 @@ import {ServicesSecondComponent} from '../services-second/services-second.compon
   styleUrls: ['./data-user.component.css']
 })
 export class DataUserComponent implements OnInit {
-
-  contador: number = 1;
+  
+  public total: number;
+  cantidad: number;
   date: any;
+  public numOrder:0;
+  public name: string;
+  public mesa: number;
+  public fecha: Timestamp<1>;
   public breakfastMenu = [];
   public dataDesayuno = {};
   
-  constructor(private dataService: ServicesSecondComponent) { 
+  
+  constructor(private dataService: ServiceSecondService) { 
     this.dataService.currentDataMenu.subscribe(data => {
-      console.log(data);
       this.dataDesayuno = data;
     })
+    this.dataService.currentDataTotal.subscribe(total => {
+      this.total = total;
+    })
+
   }
 
   ngOnInit() {   
-    this.date = new Date()
+    this.date = new Date();
   }
 
-  // sumar(cantidad) {
-  //  this.contador += cantidad;
-  // }
+  generateNumOrder(nameUser) {
+    const nameLength = nameUser.length;
+    const nameLetter = nameUser.substring(0,2).toUpperCase();
+    this.numOrder = nameLength + nameLetter;
+  }
 
-  // restar(cantidad) {
-  //   this.contador -= cantidad;
-  //  }
+  deleteOrder(orderId: any) {
+    this.dataService.deleteDataRequestes(orderId);
+  }
 
-  // delete(data) {
-  //   this.dataDesayuno
-  // }
+  multiplication(event, num) {
+     this.dataService.addDataNewObjt(event, num);
+  }
 
-  // multiplication(value1, value2) {
-  //   const quantity = value1;
-  //   const price = value2;
+  enviarData2() {
+
+      const dataObjt = {
+        numOrder: this.numOrder,
+        cliente: this.name,
+        fecha: this.date,
+        mesa: this.mesa,
+      }
+      if(dataObjt.cliente !== '' && dataObjt.mesa) {
+        this.dataService.enviarData(dataObjt);
+        
+        dataObjt.numOrder = 0;
+        dataObjt.cliente = '';
+        dataObjt.mesa = undefined;
+
+      } else {
+         alert("Ingresa los datos requeridos")
+      }
+      
+  }
     
-  // }
-
-  // totalAmount(contador) {
-  //  const products = this.dataDesayuno;
-  //  var total = 0;
-  //       for (var i = 0; i < $scope.producto.length; i++) {
-  //           var producto = $scope.producto[i];
-  //           total += this.producto;
-  //       }
-  //       return total;
-  // }
-
+  
+  
 }
+

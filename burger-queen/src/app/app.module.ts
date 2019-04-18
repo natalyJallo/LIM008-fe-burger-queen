@@ -18,7 +18,8 @@ import { DataUserComponent } from './pedido/data-user/data-user.component';
 import { FormsModule} from '@angular/forms';
 //
 import { DataApiService } from './services/data-api.service';
-import { ServicesSecondComponent } from './pedido/services-second/services-second.component';
+import { ServiceSecondService } from '../app/pedido/service-second.service';
+import { KitchenComponent } from './kitchen/kitchen.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ServicesSecondComponent } from './pedido/services-second/services-secon
     RolsComponent,
     PedidoComponent,
     SectionMenuComponent,
-    DataUserComponent
+    DataUserComponent,
+    KitchenComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +41,7 @@ import { ServicesSecondComponent } from './pedido/services-second/services-secon
   ],
   providers: [
     DataApiService,
-    ServicesSecondComponent
+    ServiceSecondService
   ],
   bootstrap: [AppComponent]
 })
