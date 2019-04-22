@@ -1,4 +1,4 @@
-ul {
+/* ul {
     list-style-type: none;
     margin: 0;padding: 0;
 }
@@ -20,7 +20,7 @@ p {
 img {
     border-radius: 50%;
     width: 100%;
-}
+} */
 
 button {
     background-color: #FFBA33;
@@ -28,4 +28,21 @@ button {
 }
 .gray {
     color: white;
+}
+.text-2 {
+    font-family: 'Englebert', sans-serif;
+}
+
+.text-3{
+    padding-top: 20px;
+}
+.style-2 {
+    color: white;
+    padding-top: 60px;
+    padding-left: 40px;
+}
+.anchor {
+    margin-left: 40px;
+    width: 200px;
+    margin-top: 50px;
 }

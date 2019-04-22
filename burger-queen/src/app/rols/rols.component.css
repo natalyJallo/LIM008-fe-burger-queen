@@ -1,0 +1,17 @@
+.img-cards {
+    height: 220px;
+}
+
+.top{
+    padding-top: 100px;
+}
+
+.text-3{
+    text-align: center;
+}
+
+.btn-cards{
+    width: 200px;
+    background-color: #FFBA33;
+    color: #474747;
+}

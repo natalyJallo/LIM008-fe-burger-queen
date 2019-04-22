@@ -7,5 +7,25 @@
 .width1 {
     width: 100%;
     background-color: #fff;
-    font-size: 15px;
+    font-size: 13px;
+    padding: 20px;
+    margin-top: 60px;
 }
+.margin {
+    margin-right: 10px
+}
+.table td, .table th {
+    padding: 8px;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+}
+
+.margin-right {
+    margin-right: 10px;
+}
+
+.total{
+    width: 76%;
+    padding-left: 70%;
+}
+

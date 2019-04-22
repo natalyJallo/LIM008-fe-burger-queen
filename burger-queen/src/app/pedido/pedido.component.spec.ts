@@ -19,7 +19,14 @@ describe('PedidoComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+  // it('should create', () => {
+  //   expect(component).toBeTruthy();
+  // });
 });
+
+// describe('Hello world', () => { (1)
+//   it('says hello', () => { (2)
+//     expect(()) (3)
+//         .toEqual('Hello world!'); (4)
+//   });
+// });

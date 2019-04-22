@@ -3,6 +3,13 @@
     float: right;
 }
 
-.margin {
+/* .margin {
     margin-left: 150px;
+} */
+
+.padding {
+    padding-left: 0PX;
+}
+.padding-2 {
+    padding-right: 0px;
 }

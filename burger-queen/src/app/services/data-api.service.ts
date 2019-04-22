@@ -29,6 +29,11 @@ export class DataApiService {
     this.firestore.collection('orderUser').add(obtjData);
 
    }
+
+   getOrder() {
+    return this.firestore.collection('orderUser').valueChanges();
+   }
+   
   // getData() {
   //   return this.firestore.collection('menus').snapshotChanges()
   //   .pipe(

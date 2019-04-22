@@ -1,6 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import { ServiceSecondService } from '../service-second.service';
 import { Timestamp } from 'rxjs';
+import {DataApiService} from '../../services/data-api.service';
 
 
 @Component({
@@ -19,26 +20,28 @@ export class DataUserComponent implements OnInit {
   public fecha: Timestamp<1>;
   public breakfastMenu = [];
   public dataDesayuno = {};
+  public orderData: number;
   
   
-  constructor(private dataService: ServiceSecondService) { 
+  constructor(private dataService: ServiceSecondService, private serviceFirestore: DataApiService) { 
     this.dataService.currentDataMenu.subscribe(data => {
       this.dataDesayuno = data;
     })
     this.dataService.currentDataTotal.subscribe(total => {
       this.total = total;
     })
-
+    this.order();
   }
 
   ngOnInit() {   
     this.date = new Date();
   }
 
-  generateNumOrder(nameUser) {
-    const nameLength = nameUser.length;
-    const nameLetter = nameUser.substring(0,2).toUpperCase();
-    this.numOrder = nameLength + nameLetter;
+  generateNumOrder(countOrder) {
+    
+    // const nameLength = nameUser.length;
+    // const nameLetter = nameUser.substring(0,2).toUpperCase();
+    this.numOrder = countOrder + 1;
   }
 
   deleteOrder(orderId: any) {
@@ -52,25 +55,31 @@ export class DataUserComponent implements OnInit {
   enviarData2() {
 
       const dataObjt = {
-        numOrder: this.numOrder,
+        numOrder: this.orderData,
         cliente: this.name,
         fecha: this.date,
         mesa: this.mesa,
       }
-      if(dataObjt.cliente !== '' && dataObjt.mesa) {
-        this.dataService.enviarData(dataObjt);
-        
-        dataObjt.numOrder = 0;
-        dataObjt.cliente = '';
-        dataObjt.mesa = undefined;
+        if(dataObjt.cliente !== '' && dataObjt.mesa) {
+          this.dataService.enviarData(dataObjt);     
+         
+          
 
-      } else {
+            dataObjt.numOrder = 0;
+            dataObjt.cliente = '';
+            dataObjt.mesa = undefined;
+
+        } else {
          alert("Ingresa los datos requeridos")
       }
       
   }
+
+  order(){
+    this.serviceFirestore.getOrder().subscribe( dataOrder => {
+      this.orderData = dataOrder.length + 1;
+    })
+  }
     
-  
-  
 }
 

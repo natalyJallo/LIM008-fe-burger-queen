@@ -1,24 +1,24 @@
-<div class="general">
-<div class="width-2">
-   <div class="nav flex-column nav-pills float-left" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-     <a class="nav-link active margin" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true" (click)="filterData('desayuno')">Desayuno</a>
-     <a class="nav-link margin" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false" (click)="filterData('almuerzo')">Almuerzo</a>
-     <a class="nav-link margin" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Pedido</a>
-     <a class="nav-link margin" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</a>
-   </div>
-</div>
-<div class="width-3">
-  <button *ngFor= "let menu of breakfastMenu"  (click)="enviarMensaje(menu)">
-    <div class="card" style="width: 15rem;">
-            <div class="card-body">
-              <h5 class="card-title">{{menu.nombre}}</h5>
-              <h6 class="card-subtitle mb-2 text-muted"></h6>
-              <p class="card-text">{{menu.precio}}</p>
-            </div>
-            <input type="text" >
-          </div>
-        </button> 
+<div class="general ">
+  <div class="width-2">
+    <div class="nav flex-column nav-pills float-left" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+     <a class="nav-link btn-menu" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true" (click)="filterData('desayuno')"><img src="../../../assets/burger-img/desayuno-1.png" class="img-icon" alt=""></a>
+     <a class="nav-link btn-menu" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false" (click)="filterData('almuerzo')"><img src="../../../assets/burger-img/menu-1.png" class="img-icon" alt=""></a>
+     <a class="nav-link btn-menu" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false"><img src="../../../assets/burger-img/lista-1.png" class="img-icon" alt=""></a>
     </div>
+  </div>
+  
+
+  <div data-spy="scroll" data-target="#navbar-example3" data-offset="0" class="width-3 col-lg-12 col-md-12 col-12">
+    <button *ngFor= "let menu of breakfastMenu"  (click)="enviarMensaje(menu)" class="menu-list"> 
+      <div class="card card-menu img-container">
+        <img src="{{menu.img}}" alt="" class="img-cards">
+        <div class="overlay over card-body">
+          <span><h5 class="card-title font-weight-bold text-uppercase text-center lead">{{menu.nombre}}</h5></span>
+        </div>
+        <p class="card-text">${{menu.precio}}.00</p>
+      </div>
+    </button> 
+  </div>
 </div>
 
 

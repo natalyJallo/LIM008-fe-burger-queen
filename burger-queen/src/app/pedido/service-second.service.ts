@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { setTNodeAndViewData } from '@angular/core/src/render3/state';
 import {DataApiService} from '../services/data-api.service';
+// import {Router} from '@angular/router';
 
 
 export interface SectionOrder {
@@ -33,13 +34,12 @@ export class ServiceSecondService {
   currentDataTotal = this.dataPedido.asObservable()
 
   public arrayDataMenu: ProductosPedidos[] = [];
-  
- 
 
   public dataDelete: any;
   public numData = 0;
-
-  constructor(private dataService: DataApiService) { }
+  // router: Router;
+  constructor(private dataService: DataApiService) { 
+  }
 
   printDataMenu(value) {
     this.arrayDataMenu.push(value);
@@ -96,7 +96,10 @@ export class ServiceSecondService {
     }
     console.log(modelOrder);
     this.dataService.sendData(modelOrder);
+    // this.router.navigateByUrl('pedido');
   }
+
+ 
 
 }
       

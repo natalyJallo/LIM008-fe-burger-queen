@@ -9,4 +9,3 @@ export interface DataApi {
     }
     
 }
-// precio y producto en observacion si sera un array para aguardar varios productos que comprara un cliente

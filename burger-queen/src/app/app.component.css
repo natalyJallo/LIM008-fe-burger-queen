@@ -1,8 +1,24 @@
 body {
     height: 100%;
-    background-image: url('/burger-queen/src/app/burger-img/fondo.jpg');
+    
+}
+.section-home {
+    background-image: url('../assets/burger-img/fondo-7.jpg');
+    width: 100%;
+    /* height: 100vh; */
+    background-attachment: fixed;
+    background-size: cover;
+    height: 100vh;
 }
 
-.section-menu {
-    widows: 30%;
+div.container-fluid {
+    width: 100%;
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-right: 0px;
+    margin-left: 0px;
 }
+
+/* .section-menu {
+    widows: 30%;
+} */
