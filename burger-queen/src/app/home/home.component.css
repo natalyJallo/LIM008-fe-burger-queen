@@ -39,10 +39,14 @@ button {
 .style-2 {
     color: white;
     padding-top: 60px;
-    padding-left: 40px;
+    padding-left: 50px
 }
 .anchor {
     margin-left: 40px;
     width: 200px;
     margin-top: 50px;
+}
+
+.img-home {
+    width: 500px;
 }

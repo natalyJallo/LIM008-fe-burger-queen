@@ -9,7 +9,7 @@
     ]
   },
   "hosting": {
-    "public": "build",
+    "public": "burger-queen/dist/burger-queen/",
     "ignore": [
       "firebase.json",
       "**/.*",

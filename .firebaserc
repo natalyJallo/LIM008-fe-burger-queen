@@ -1,6 +1,7 @@
 {
   "projects": {
     "dev": "burger-queen-8fb20",
-    "Burger Queen": "burger-queen-8fb20"
+    "Burger Queen": "burger-queen-8fb20",
+    "produccion-burger": "burger-queen-8fb20"
   }
 }

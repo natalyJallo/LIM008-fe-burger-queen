@@ -4,15 +4,20 @@
 body, html {
     height: 100%;
     margin: 0 auto;
+    
 }
 
 body {
     font-family: 'Montserrat';
     font-size: 19px;
+    /* background-color: rgba(41, 37, 31, 0.911); */
+    background-image: url('./assets/burger-img/fondo-10.jpg');
+    background-size: cover;
+
 }
 
 header {
-    background: #363131;
+    background: #1b1919;
     position: fixed;
     z-index: 3;
     width: 100%;
