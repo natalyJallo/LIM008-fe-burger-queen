@@ -26,7 +26,7 @@ export class DataApiService {
 
    sendData(obtjData) {
      console.log(obtjData);
-    this.firestore.collection('orderUser').add(obtjData);
+    return this.firestore.collection('orderUser').add(obtjData);
 
    }
 

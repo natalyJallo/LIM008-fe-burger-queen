@@ -37,13 +37,6 @@ export class DataUserComponent implements OnInit {
     this.date = new Date();
   }
 
-  generateNumOrder(countOrder) {
-    
-    // const nameLength = nameUser.length;
-    // const nameLetter = nameUser.substring(0,2).toUpperCase();
-    this.numOrder = countOrder + 1;
-  }
-
   deleteOrder(orderId: any) {
     this.dataService.deleteDataRequestes(orderId);
   }
@@ -61,18 +54,16 @@ export class DataUserComponent implements OnInit {
         mesa: this.mesa,
       }
         if(dataObjt.cliente !== '' && dataObjt.mesa) {
-          this.dataService.enviarData(dataObjt);     
-         
-          
-
-            dataObjt.numOrder = 0;
-            dataObjt.cliente = '';
-            dataObjt.mesa = undefined;
+          this.dataService.enviarData(dataObjt).then(response => {
+            // this.breakfastMenu = [];
+            // this.dataDesayuno={};
+            this.name = "";
+            this.mesa = 0;
+          })     
 
         } else {
          alert("Ingresa los datos requeridos")
       }
-      
   }
 
   order(){

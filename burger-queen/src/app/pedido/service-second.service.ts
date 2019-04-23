@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { setTNodeAndViewData } from '@angular/core/src/render3/state';
 import {DataApiService} from '../services/data-api.service';
-// import {Router} from '@angular/router';
-
 
 export interface SectionOrder {
   cliente: string,
@@ -34,15 +32,17 @@ export class ServiceSecondService {
   currentDataTotal = this.dataPedido.asObservable()
 
   public arrayDataMenu: ProductosPedidos[] = [];
-
   public dataDelete: any;
   public numData = 0;
-  // router: Router;
+  public dataDesayuno = {};
+
   constructor(private dataService: DataApiService) { 
   }
 
   printDataMenu(value) {
+    // console.log(value.precio)
     this.arrayDataMenu.push(value);
+    // console.log()
     this.dataMenuList.next(this.arrayDataMenu);
     this.sumaTotal();
   }
@@ -66,8 +66,11 @@ export class ServiceSecondService {
   }
 
   sumaTotal() {
+    this.numData = 0;
       for (let i = 0; i < this.arrayDataMenu.length; i++) {
+        console.log(this.arrayDataMenu)
         this.numData += this.arrayDataMenu[i].subtotal;
+        console.log(this.arrayDataMenu[i].subtotal)
       }
       this.dataPedido.next(this.numData);
   }
@@ -79,27 +82,16 @@ export class ServiceSecondService {
       this.sumaTotal();
   }
 
-  // enviarDataFirestore(dataPedido) {
-  //   const modelOrder = {
-  //       ...dataPedido,
-  //       productos: this.arrayDataMenu,
-  //   }
-  //   console.log(modelOrder);
-  //   // this.dataServiceFirestore.sendData(modelOrder);;
-  // }
-
   enviarData(dataPedido){
     const modelOrder: SectionOrder = {
         ...dataPedido,
         productos: this.arrayDataMenu,
         total: this.numData,
     }
+    console.log(this.arrayDataMenu)
     console.log(modelOrder);
-    this.dataService.sendData(modelOrder);
-    // this.router.navigateByUrl('pedido');
-  }
-
- 
+    return this.dataService.sendData(modelOrder);
+  } 
 
 }
       
