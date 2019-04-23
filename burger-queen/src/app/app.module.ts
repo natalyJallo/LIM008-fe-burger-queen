@@ -20,6 +20,7 @@ import { FormsModule} from '@angular/forms';
 import { DataApiService } from './services/data-api.service';
 import { ServiceSecondService } from '../app/pedido/service-second.service';
 import { KitchenComponent } from './kitchen/kitchen.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { KitchenComponent } from './kitchen/kitchen.component';
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
-    FormsModule
+    FormsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     DataApiService,
